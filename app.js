@@ -1,5 +1,17 @@
 // FG Property Web Application Logic
 document.addEventListener("DOMContentLoaded", () => {
+    // 0. Mobile Navigation Toggle
+    const mobileBtn = document.getElementById('mobileMenuBtn');
+    const navLinks = document.querySelector('.nav-links');
+    if (mobileBtn && navLinks) {
+        mobileBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => navLinks.classList.remove('active'));
+        });
+    }
+
     // 1. Enriched Property Portfolio Data
     const properties = [
         {
